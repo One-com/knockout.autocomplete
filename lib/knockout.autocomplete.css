@@ -11,6 +11,9 @@
 }
 .autocomplete.menu li {
     list-style: none;
-    margin: 0;
-    padding: 3px;
+    margin: 3px 0;
+    padding: 3px 12px;
+}
+.autocomplete.menu li.selected {
+    background-color: #eee;
 }

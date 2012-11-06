@@ -35,6 +35,9 @@
         focused: ko.observable(true),
         focusInput: function () {
             multiComplete.focused(true);
+        },
+        removeItem: function (index) {
+            multiComplete.completed.splice(index, 1);
         }
     };
 
