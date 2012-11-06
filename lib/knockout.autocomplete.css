@@ -1,0 +1,13 @@
+.autocomplete.menu {
+    position: absolute;
+    border: thin black solid;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    margin-top: 3px;
+}
+.autocomplete.menu li {
+    list-style: none;
+    margin: 0;
+    padding: 3px;
+}
