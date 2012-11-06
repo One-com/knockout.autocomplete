@@ -1,5 +1,5 @@
-.autocomplete.menu {
-    position: absolute;
+.knockout-autocomplete.menu {
+    position: fixed;
     border: thin #aaa solid;
     background-color: white;
     padding: 0;
@@ -9,11 +9,11 @@
     -moz-box-shadow:    1px 1px 4px rgba(50, 50, 50, 0.75);
     box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);
 }
-.autocomplete.menu li {
+.knockout-autocomplete.menu li {
     list-style: none;
     margin: 3px 0;
     padding: 3px 12px;
 }
-.autocomplete.menu li.selected {
+.knockout-autocomplete.menu li.selected {
     background-color: #eee;
 }
