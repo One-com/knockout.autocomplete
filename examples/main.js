@@ -1,3 +1,4 @@
+/*global ko*/
 (function () {
     var keywords = [
         'abstract', 'add', 'alias', 'as', 'ascending', 'async', 'await', 'base', 'bool', 'break',
