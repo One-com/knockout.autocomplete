@@ -1,10 +1,13 @@
 .autocomplete.menu {
     position: absolute;
-    border: thin black solid;
+    border: thin #aaa solid;
     background-color: white;
     padding: 0;
     margin: 0;
     margin-top: 3px;
+    -webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 1px 4px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);
 }
 .autocomplete.menu li {
     list-style: none;
