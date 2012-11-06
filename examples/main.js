@@ -14,25 +14,34 @@
     ];
 
     var backspace = 8;
+    var singleComplete = {
+        items: ko.observableArray(keywords)
+    };
 
-    var viewModel = {
+    var multiComplete = {
         completed: ko.observableArray(),
-        contacts: ko.observableArray(keywords),
+        items: ko.observableArray(keywords),
         select: function (item) {
-            viewModel.completed.push(item);
+            multiComplete.completed.push(item);
             return '';
         },
         value: ko.observable(''),
         keyDown: function (date, event) {
-            if (viewModel.value().length === 0 && event.which === backspace) {
-                viewModel.completed.pop();
+            if (multiComplete.value().length === 0 && event.which === backspace) {
+                multiComplete.completed.pop();
             }
             return true;
         },
         focused: ko.observable(true),
         focusInput: function () {
-            viewModel.focused(true);
+            multiComplete.focused(true);
         }
+    };
+
+    var viewModel = {
+        keywords: keywords,
+        singleComplete: singleComplete,
+        multiComplete: multiComplete
     };
     ko.applyBindings(viewModel, document.getElementById('application'));
 }());
