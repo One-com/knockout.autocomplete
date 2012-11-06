@@ -1,0 +1,13 @@
+{
+    "name": "knockout.autocomplete",
+    "version": "0.0.1",
+    "author": "Sune Sloth Simonsen <sune@we-knowhow.dk>",
+    "dependencies": {},
+    "private": true,
+    "scripts": {
+        "test": "phantomjs vendor/mocha-phantomjs.coffee test/index.html"
+    },
+    "devDependencies": {
+        "phantomjs": "=0.0.8"
+    }
+}

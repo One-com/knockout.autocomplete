@@ -1,4 +1,5 @@
-knockout.autocomplete
-=====================
+= knockout.autocompletion
 
-Auto completion binding for knockout
+An auto completion binding for Knockout.
+
+Note this project is noware near finished, so please check back later.
