@@ -27,7 +27,7 @@
                       <a class="remove" data-bind="click: function () { $parent.removeItem($index()) }"></a>
                   </span>
                   <!-- /ko -->
-                  <input data-bind="attr: { size: Math.max(1, value().length - 1) }, hasfocus: focused, value: value, valueUpdate: 'afterkeydown', event: { keydown: keyDown }, autocomplete: { data: items, onSelect: select, freeText: true, separators: ',; ' }" value=""/>
+                  <input data-bind="attr: { size: Math.max(1, value().length - 1) }, hasfocus: focused, value: value, valueUpdate: 'afterkeydown', event: { keydown: keyDown }, autocomplete: { data: items, onSelect: select, separators: ',; ' }" value=""/>
               </div>
           </div>
       </div>
