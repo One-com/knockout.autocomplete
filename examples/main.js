@@ -21,8 +21,10 @@
     var multiComplete = {
         completed: ko.observableArray(),
         items: ko.observableArray(keywords),
-        select: function (item) {
-            multiComplete.completed.push(item);
+        select: function (items) {
+            items.forEach(function (item) {
+                multiComplete.completed.push(item);
+            });
             return '';
         },
         value: ko.observable(''),
