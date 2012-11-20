@@ -38,7 +38,10 @@
         },
         removeItem: function (index) {
             multiComplete.completed.splice(index, 1);
-        }
+        },
+        inputSize: ko.computed(function () {
+            return Math.max(1, multiComplete.value().length);
+        }, null, { deferEvaluation: true })
     };
 
     var viewModel = {
