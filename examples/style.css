@@ -2,12 +2,14 @@
     border: thin solid #aaa;
     display: inline-block;
     width: 400px;
+    min-height: 30px;
     vertical-align: text-top;
     font-family: arial;
     font-size: 16px;
     padding: 2px;
 }
 .completion input {
+    line-height: 23px;
     border: none;
     outline: none;
     font-family: arial;
