@@ -34,7 +34,7 @@
             }
             return true;
         },
-        focused: ko.observable(true),
+        focused: ko.observable(false),
         focusInput: function () {
             multiComplete.focused(true);
         },
