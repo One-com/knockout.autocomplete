@@ -22,7 +22,7 @@
         completed: ko.observableArray(),
         items: ko.observableArray(keywords),
         select: function (items) {
-            items.forEach(function (item) {
+            ko.utils.arrayForEach(items, function (item) {
                 multiComplete.completed.push(item);
             });
             return '';
