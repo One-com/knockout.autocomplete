@@ -1,6 +1,4 @@
 (function (ko) {
-
-
     function specialKeyHandler(key) {
         return {
             init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
