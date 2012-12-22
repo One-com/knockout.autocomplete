@@ -2,19 +2,26 @@ var examples = examples || {};
 (function () {
     var backspace = 8;
 
+    function ItemModel(item) {
+        this.value = ko.observable(item);
+        this.editing = ko.observable(false);
+        this.inputSize = ko.computed(function () {
+            return Math.max(1, this.value().length);
+        }, this, { deferEvaluation: true });
+    }
+
     function select(items) {
         var that = this;
         items.forEach(function (item) {
-            that.completed.push(item);
+            that.completed.push(new ItemModel(item));
         });
         return '';
     }
 
-    function keyDown(date, event) {
-        if (this.value().length === 0 && event.which === backspace) {
+    function removeLast(data, event) {
+        if (this.value().length === 0) {
             this.completed.pop();
         }
-        return true;
     }
 
     function focusInput() {
@@ -29,13 +36,14 @@ var examples = examples || {};
         this.completed = ko.observableArray();
         this.items = ko.observableArray(data);
         this.value = ko.observable('');
+        this.editing = ko.observable(null);
         this.focused = ko.observable(false);
         this.select = select.bind(this);
-        this.keyDown = keyDown.bind(this);
+        this.removeLast = removeLast.bind(this);
         this.focusInput = focusInput.bind(this);
         this.removeItem = removeItem.bind(this);
 
-        MultiCompleteModel.prototype.inputSize = ko.computed(function () {
+        this.inputSize = ko.computed(function () {
             return Math.max(1, this.value().length);
         }, this, { deferEvaluation: true });
     }

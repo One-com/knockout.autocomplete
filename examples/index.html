@@ -22,18 +22,20 @@
               <span class="label">C# keywords:</span>
               <div class="completion" data-bind="click: focusInput">
                   <!-- ko foreach: completed -->
-                  <span class="item">
-                      <span class="label" data-bind="text: $data"></span>
-                      <a class="remove" data-bind="click: function () { $parent.removeItem($index()) }"></a>
+                  <input data-bind="visible: editing(), value: value, valueUpdate: 'afterkeydown', hasfocus: editing, attr: { size: inputSize }, autocomplete: { data: $root.keywords }" value=""/>
+                  <span class="item" data-bind="visible: !editing(), click: editing, clickBubble: false">
+                    <span class="label" data-bind="text: value"></span>
+                    <a class="remove" data-bind="click: function () { $parent.removeItem($index()) }"></a>
                   </span>
                   <!-- /ko -->
-                  <input data-bind="attr: { size: inputSize }, hasfocus: focused, value: value, valueUpdate: 'afterkeydown', event: { keydown: keyDown }, autocomplete: { data: items, onSelect: select, separators: ',; ' }" value=""/>
+                  <input data-bind="attr: { size: inputSize }, hasfocus: focused, value: value, valueUpdate: 'afterkeydown', onBackspace: removeLast, autocomplete: { data: items, onSelect: select, separators: ',; ' }" value=""/>
               </div>
           </div>
       </div>
       <script type="text/javascript" src="../vendor/jquery-1.8.1.js"></script>
       <script type="text/javascript" src="../vendor/knockout-2.2.0.debug.js"></script>
       <script type="text/javascript" src="../lib/knockout.autocomplete.js"></script>
+      <script type="text/javascript" src="knockout.keys.js"></script>
       <script type="text/javascript" src="MultiCompleteModel.js"></script>
       <script type="text/javascript" src="main.js"></script>
     </body>
