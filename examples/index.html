@@ -13,9 +13,9 @@
               <span data-bind="text: $data"></span>
           </div>
           <h2>Single Completion</h2>
-          <div data-bind="with: singleComplete">
+          <div>
               <span class="label">C# keywords:</span>
-              <input data-bind="autocomplete: { data: items, maxItems: 6 }" value=""/>
+              <input data-bind="autocomplete: { data: keywords, maxItems: 6 }" value=""/>
           </div>
           <h2>Multi Completion</h2>
           <div data-bind="with: multiComplete">

@@ -14,9 +14,6 @@
     ];
 
     var backspace = 8;
-    var singleComplete = {
-        items: ko.observableArray(keywords)
-    };
 
     var multiComplete = {
         completed: ko.observableArray(),
@@ -48,7 +45,6 @@
 
     var viewModel = {
         keywords: keywords,
-        singleComplete: singleComplete,
         multiComplete: multiComplete
     };
     ko.applyBindings(viewModel, document.getElementById('application'));
