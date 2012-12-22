@@ -25,7 +25,13 @@ var examples = examples || {};
     }
 
     function focusInput() {
-        this.focused(true);
+        var editing = this.completed().some(function (item) {
+            return item.editing();
+        });
+
+        if (!editing) {
+            this.focused(true);
+        }
     }
 
     function removeItem(index) {
@@ -36,7 +42,6 @@ var examples = examples || {};
         this.completed = ko.observableArray();
         this.items = ko.observableArray(data);
         this.value = ko.observable('');
-        this.editing = ko.observable(null);
         this.focused = ko.observable(false);
         this.select = select.bind(this);
         this.removeLast = removeLast.bind(this);
