@@ -22,9 +22,9 @@
               <span class="label">C# keywords:</span>
               <div class="completion" data-bind="click: focusInput">
                   <!-- ko foreach: completed -->
-                  <input data-bind="visible: editing(), value: value, valueUpdate: 'afterkeydown', hasfocus: editing, attr: { size: inputSize }, autocomplete: { data: $root.keywords }" value=""/>
-                  <span class="item" data-bind="visible: !editing(), click: editing, clickBubble: false">
-                    <span class="label" data-bind="text: value"></span>
+                  <input data-bind="visible: editing(), value: value, valueUpdate: 'afterkeydown', hasfocus: editing, attr: { size: inputSize }, autocomplete: { data: $root.keywords, onSelect: select, separators: ',; ' }" value=""/>
+                  <span class="item" data-bind="visible: !editing()">
+                    <span class="label" data-bind="text: value, click: edit"></span>
                     <a class="remove" data-bind="click: function () { $parent.removeItem($index()) }"></a>
                   </span>
                   <!-- /ko -->
