@@ -37,7 +37,7 @@ var examples = examples || {};
 
     function removeLast(data, event) {
         if (this.value().length === 0) {
-            this.completed.pop();
+            this.selected.pop();
         }
     }
 
