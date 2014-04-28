@@ -1,8 +1,11 @@
 .knockout-autocomplete.menu {
-    position: fixed;
-    border: thin #aaa solid;
     background-color: white;
     padding: 3px 0;
+}
+
+.knockout-autocomplete.floating-menu {
+    position: fixed;
+    border: thin #aaa solid;
     margin: 0;
     margin-top: 3px;
     -webkit-box-shadow: 1px 1px 4px rgba(50, 50, 50, 0.75);
