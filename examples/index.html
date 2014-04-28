@@ -31,10 +31,11 @@
                   <input data-bind="attr: { size: inputSize }, hasfocus: focused, value: value, valueUpdate: 'afterkeydown', onBackspace: removeLast, autocomplete: { data: items, onSelect: select, separators: ',; ' }" value=""/>
               </div>
           </div>
-          <h2>Single Completion with Target</h2>
+          <h2>List Filtering with Target</h2>
           <div>
               <span class="label">C# keywords:</span>
-              <input data-bind="autocomplete: { data: keywords, target: 'targetSuggestions' }">
+              <input data-bind="autocomplete: { data: keywords, minLength: 0, target: 'targetSuggestions', onSelect: function (item) { flashWord(item); return ''; } }">
+              <b><span data-bind="text: flashWord"></span></b>
               <div id="targetSuggestions"></div>
           </div>
       </div>

@@ -1,4 +1,4 @@
-/*global ko*/
+/*global ko, examples*/
 (function () {
     var keywords = [
         'abstract', 'add', 'alias', 'as', 'ascending', 'async', 'await', 'base', 'bool', 'break',
@@ -15,7 +15,17 @@
 
     var viewModel = {
         keywords: keywords,
-        multiComplete: new examples.MultiCompleteModel(keywords)
+        multiComplete: new examples.MultiCompleteModel(keywords),
+        flashWord: ko.observable()
     };
+
+    viewModel.flashWord.subscribe(function (newValue) {
+        setTimeout(function () {
+            if (viewModel.flashWord() === newValue) {
+                viewModel.flashWord('');
+            }
+        }, 1000);
+    });
+
     ko.applyBindings(viewModel, document.getElementById('application'));
 }());
