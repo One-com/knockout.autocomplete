@@ -71,7 +71,7 @@ function (completionItem) {
 
 ### Examples
 
-[Click here to see an example](https://cdn.rawgit.com/sunesimonsen/knockout.autocomplete/master/examples/index.html)
+[Click here to see an example](https://cdn.rawgit.com/One-com/knockout.autocomplete/master/examples/index.html)
 
 # Licence
 
