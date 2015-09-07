@@ -25,7 +25,7 @@ completion.
 
 #### data (required)
 
-An array completion candidates.
+An array or an observable array of completion candidates.
 
 #### maxItems (default 8)
 
