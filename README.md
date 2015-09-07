@@ -2,9 +2,76 @@
 
 An auto completion binding for Knockout.
 
-Note this project is no where near finished, so please check back later.
+### Usage
 
-[Click here to see an example](http://sunesimonsen.github.com/knockout.autocomplete/examples/index.html)
+```js
+var viewModel = {
+    keywords: ko.observableArray([
+        'abstract', 'add', 'alias', 'as', 'ascending',
+        'async', 'await', 'base', 'bool', 'break'
+    ])
+};
+ko.applyBindings(viewModel);
+```
+
+```html
+<input data-bind="autocomplete: { data: keywords, maxItems: 6 }" value=""/>
+```
+
+### API
+
+You can use the following options to configure the behavior of the auto
+completion.
+
+#### data (required)
+
+An array completion candidates.
+
+#### maxItems (default 8)
+
+The number of items that the auto completion binding should maximally show.
+
+#### minLength (default 1)
+
+The min lenght of the query before showing the completion suggestions. 
+
+#### format (default toString)
+
+A function that will format the items for displaying as suggestions to the user.
+The function should return a string.
+
+#### onSelect (default toString)
+
+The function that will be called when a completion suggestion has been chosen by
+the user. You can return a string from the function to update the value of the
+input field.
+
+#### query (default ko.observable(''))
+
+An observable the contain the text query the items should be filtered by.
+
+#### noFilter (default false)
+
+Use this flag to disable automatically filtering of the data items.
+
+#### separators (default null)
+
+A string of characters that will trigger a completion. See the examples for how
+to complete on comma or semicolon.
+
+#### renderSuggestion (default function that highlights the match)
+
+Here is a rendering function the item without highlighting the match:
+
+```js
+function (completionItem) {
+    return  '<li>' + completionItem.label + '</li>';
+};
+```
+
+### Examples
+
+[Click here to see an example](https://cdn.rawgit.com/sunesimonsen/knockout.autocomplete/master/examples/index.html)
 
 # Licence
 

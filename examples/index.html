@@ -17,6 +17,11 @@
               <span class="label">C# keywords:</span>
               <input data-bind="autocomplete: { data: keywords, maxItems: 6 }" value=""/>
           </div>
+          <h2>Levenshtein Completion</h2>
+          <div>
+              <span class="label">C# keywords:</span>
+              <input data-bind="autocomplete: levenshtein" value=""/>
+          </div>
           <h2>Multi Completion</h2>
           <div data-bind="with: multiComplete">
               <span class="label">C# keywords:</span>
@@ -42,8 +47,10 @@
       <script type="text/javascript" src="../vendor/jquery-1.8.1.js"></script>
       <script type="text/javascript" src="../vendor/knockout-2.2.0.debug.js"></script>
       <script type="text/javascript" src="../lib/knockout.autocomplete.js"></script>
+      <script type="text/javascript" src="../vendor/levenshtein.js"></script>
       <script type="text/javascript" src="knockout.keys.js"></script>
       <script type="text/javascript" src="MultiCompleteModel.js"></script>
+      <script type="text/javascript" src="LevenshteinModel.js"></script>
       <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

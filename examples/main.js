@@ -16,6 +16,7 @@
     var viewModel = {
         keywords: keywords,
         multiComplete: new examples.MultiCompleteModel(keywords),
+        levenshtein: new examples.LevenshteinModel(keywords),
         flashWord: ko.observable()
     };
 
