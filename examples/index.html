@@ -17,6 +17,11 @@
               <span class="label">C# keywords:</span>
               <input data-bind="autocomplete: { data: keywords, maxItems: 6 }" value=""/>
           </div>
+          <h2>Time selector</h2>
+          <div>
+              <span class="label">Times:</span>
+              <input data-bind="autocomplete: { data: timeData, query: timeQuery, noFilter: true, minLength: 0 }" value=""/>
+          </div>
           <h2>Levenshtein Completion</h2>
           <div>
               <span class="label">C# keywords:</span>

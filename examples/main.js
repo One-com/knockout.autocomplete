@@ -13,11 +13,31 @@
         'while', 'yield'
     ];
 
+    var times = [];
+    Array(24).join(',').split(',').forEach(function (_, index) {
+        var hour = index;
+        if (hour < 10) {
+            hour = '0' + hour;
+        }
+        times.push(hour + ':00');
+        times.push(hour + ':30');
+    });
+
+    var timeQuery = ko.observable('');
+    var timeData = ko.computed(function () {
+        return times.filter(function (time) {
+            var query = timeQuery();
+            return query === time.substring(0, query.length);
+        });
+    });
+
     var viewModel = {
         keywords: keywords,
         multiComplete: new examples.MultiCompleteModel(keywords),
         levenshtein: new examples.LevenshteinModel(keywords),
-        flashWord: ko.observable()
+        flashWord: ko.observable(),
+        timeQuery: timeQuery,
+        timeData: timeData
     };
 
     viewModel.flashWord.subscribe(function (newValue) {

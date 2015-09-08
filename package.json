@@ -7,7 +7,8 @@
     "test": "phantomjs vendor/mocha-phantomjs.coffee test/index.html"
   },
   "devDependencies": {
-    "phantomjs": "=0.0.8"
+    "phantomjs": "=0.0.8",
+    "serve": "^1.4.0"
   },
   "bugs": "https://github.com/One-com/knockout.autocomplete/issues",
   "repository": {
