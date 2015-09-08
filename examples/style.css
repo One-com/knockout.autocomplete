@@ -38,3 +38,12 @@
     width: 8px;
     cursor: pointer;
 }
+
+.time-input, .time-dropdown {
+    width: 180px;
+}
+
+.time-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+}
