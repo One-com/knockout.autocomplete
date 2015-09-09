@@ -1,6 +1,6 @@
 {
   "name": "knockout.autocomplete",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "Sune Sloth Simonsen <sune@we-knowhow.dk>",
   "dependencies": {},
   "scripts": {
