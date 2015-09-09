@@ -50,6 +50,14 @@ input field.
 
 An observable the contain the text query the items should be filtered by.
 
+#### className
+
+A css class that will be applied to the menu element. 
+
+#### visible
+
+An observable that decides whether the completion menu is shown.
+
 #### noFilter (default false)
 
 Use this flag to disable automatically filtering of the data items.
@@ -62,14 +70,6 @@ to complete on comma or semicolon.
 #### renderSuggestion (default function that highlights the match)
 
 Here is a rendering function the item without highlighting the match:
-
-#### className
-
-A css class that will be applied to the menu element. 
-
-#### visible
-
-An observable that decides whether the completion menu is shown.
 
 ```js
 function (completionItem) {
