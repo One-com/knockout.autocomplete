@@ -25,7 +25,17 @@ var examples = examples || {};
             }, this);
         }, this);
         this.visible = ko.observable(false);
+        this.focused = ko.observable(false);
+        this.visible.subscribe(function (value) {
+            if (value) {
+                this.focused(true);
+            }
+        }, this);
     }
+
+    TimeComplete.prototype.hide = function (viewModel) {
+        viewModel.visible(false);
+    };
 
     TimeComplete.prototype.toggleVisible = function (viewModel, event) {
         if (event.button === 0) {

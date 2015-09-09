@@ -20,7 +20,7 @@
           <h2>Time selector</h2>
           <div data-bind="with: timeComplete">
               <span class="label">Times:</span>
-              <input data-bind="hasfocus: visible, autocomplete: { data: timeData, query: timeQuery, noFilter: true, minLength: 0, className: 'time-dropdown', visible: visible }" class="time-input" value=""/>
+              <input data-bind="hasfocus: focused, autocomplete: { data: timeData, query: timeQuery, noFilter: true, minLength: 0, className: 'time-dropdown', visible: visible }" class="time-input" value=""/>
               <button data-bind="event: { mousedown: toggleVisible }, text: visible() ? '▲' : '▼'"></button>
           </div>
           <h2>Levenshtein Completion</h2>
