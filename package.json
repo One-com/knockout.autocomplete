@@ -1,6 +1,6 @@
 {
   "name": "knockout.autocomplete",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Sune Sloth Simonsen <sune@we-knowhow.dk>",
   "scripts": {
     "test": "node_modules/.bin/mocha-phantomjs test/index.html"
