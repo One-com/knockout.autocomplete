@@ -2,13 +2,16 @@
   "name": "knockout.autocomplete",
   "version": "1.2.0",
   "author": "Sune Sloth Simonsen <sune@we-knowhow.dk>",
-  "dependencies": {},
   "scripts": {
-    "test": "phantomjs vendor/mocha-phantomjs.coffee test/index.html"
+    "test": "node_modules/.bin/mocha-phantomjs test/index.html"
   },
   "devDependencies": {
-    "phantomjs": "=0.0.8",
-    "serve": "^1.4.0"
+    "mocha": "2.3.2",
+    "mocha-phantomjs": "3.6.0",
+    "phantomjs": "1.9.7-15",
+    "serve": "^1.4.0",
+    "unexpected": "9.9.0",
+    "unexpected-dom": "1.2.0"
   },
   "bugs": "https://github.com/One-com/knockout.autocomplete/issues",
   "repository": {

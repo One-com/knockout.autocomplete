@@ -2,7 +2,12 @@
   <head>
     <title>Mocha</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="../vendor/mocha.css" />
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    <style>
+     .floating-menu {
+         visibility: hidden;
+     }
+    </style>
   </head>
   <body>
     <div id="mocha"></div>
@@ -11,10 +16,11 @@
 
     <!-- Test elements -->
 
-    <script src="../vendor/expect.js"></script>
-    <script src="../vendor/mocha.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../vendor/knockout-2.2.0.debug.js"></script>
     <script src="../vendor/jquery-1.8.1.js"></script>
+    <script src="../node_modules/unexpected/unexpected.js"></script>
+    <script src="../node_modules/unexpected-dom/unexpected-dom.js"></script>
     <script src="../lib/knockout.autocomplete.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="spec.helper.js"></script>

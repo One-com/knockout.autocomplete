@@ -1,9 +1,16 @@
-function useTestElement(selector) {
+var expect = window.weknowhow.expect;
+expect.use(window.unexpected.dom);
+
+function useTestElement(html) {
     var container = $('#test');
     container.empty();
-    var testElement = $(selector).clone();
+    var testElement = $(html).clone();
     testElement.appendTo(container);
-    return testElement[0];
+    return $(testElement[0]);
+}
+
+function getMenu() {
+    return $('.floating-menu')[0];
 }
 
 function click(element, options) {
@@ -24,6 +31,16 @@ function keyDown(element, options) {
     };
     options = $.extend(defaultOptions, options);
     var e = $.Event("keydown", options);
+    element.trigger(e);
+}
+
+function keyUp(element, options) {
+    var defaultOptions = {
+        shiftKey: false,
+        ctrlKey: false
+    };
+    options = $.extend(defaultOptions, options);
+    var e = $.Event("keyup", options);
     element.trigger(e);
 }
 
@@ -48,5 +65,7 @@ function space(element, options) {
 function toArray(args) {
     return Array.prototype.slice.call(args);
 }
+
 beforeEach(function() {
+    $('.floating-menu').remove();
 });
