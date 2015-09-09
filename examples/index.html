@@ -18,9 +18,10 @@
               <input data-bind="autocomplete: { data: keywords, maxItems: 6 }" value=""/>
           </div>
           <h2>Time selector</h2>
-          <div>
+          <div data-bind="with: timeComplete">
               <span class="label">Times:</span>
-              <input data-bind="autocomplete: { data: timeData, query: timeQuery, noFilter: true, minLength: 0, className: 'time-dropdown' }" class="time-input" value=""/>
+              <input data-bind="autocomplete: { data: timeData, query: timeQuery, noFilter: true, minLength: 0, className: 'time-dropdown', visible: visible }" class="time-input" value=""/>
+              <button data-bind="event: { mousedown: toggleVisible }, text: visible() ? '▲' : '▼'"></button>
           </div>
           <h2>Levenshtein Completion</h2>
           <div>
@@ -54,6 +55,7 @@
       <script type="text/javascript" src="../lib/knockout.autocomplete.js"></script>
       <script type="text/javascript" src="../vendor/levenshtein.js"></script>
       <script type="text/javascript" src="knockout.keys.js"></script>
+      <script type="text/javascript" src="TimeComplete.js"></script>
       <script type="text/javascript" src="MultiCompleteModel.js"></script>
       <script type="text/javascript" src="LevenshteinModel.js"></script>
       <script type="text/javascript" src="main.js"></script>

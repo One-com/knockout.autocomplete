@@ -63,6 +63,14 @@ to complete on comma or semicolon.
 
 Here is a rendering function the item without highlighting the match:
 
+#### className
+
+A css class that will be applied to the menu element. 
+
+#### visible
+
+An observable that decides whether the completion menu is shown.
+
 ```js
 function (completionItem) {
     return  '<li>' + completionItem.label + '</li>';
