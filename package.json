@@ -10,7 +10,7 @@
     "mocha-phantomjs": "3.6.0",
     "phantomjs": "1.9.7-15",
     "serve": "^1.4.0",
-    "unexpected": "9.9.0",
+    "unexpected": "9.10.0",
     "unexpected-dom": "1.2.0"
   },
   "bugs": "https://github.com/One-com/knockout.autocomplete/issues",
