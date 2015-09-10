@@ -2,6 +2,8 @@
 
 An auto completion binding for Knockout.
 
+[![Build Status](https://travis-ci.org/One-com/knockout.autocomplete.svg?branch=master)](https://travis-ci.org/One-com/knockout.autocomplete)
+
 ### Usage
 
 ```js
