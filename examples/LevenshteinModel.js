@@ -21,7 +21,7 @@ var examples = examples || {};
             });
         }, this);
         this.renderSuggestion = function (completionItem) {
-            return '<li>' + completionItem.label + '</li>';
+            return document.createTextNode(completionItem.label);
         };
     }
 
