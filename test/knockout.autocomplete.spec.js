@@ -44,17 +44,17 @@ describe('knockout.autocomplete', function () {
                         {
                             attributes:  { 'data-index': '0', 'class': 'selected' },
                             children: [
-                                { attributes: { 'class': 'before' }, children: [''] },
-                                { attributes: { 'class': 'match' }, children: ['pr']  },
-                                { attributes: { 'class': 'after' }, children: ['ivate'] }
+                                { attributes: { 'class': 'before' }, textContent: '' },
+                                { attributes: { 'class': 'match' }, textContent: 'pr'  },
+                                { attributes: { 'class': 'after' }, textContent: 'ivate' }
                             ]
                         },
                         {
                             attributes:  { 'data-index': '1', 'class': undefined },
                             children: [
-                                { attributes: { 'class': 'before' }, children: [''] },
-                                { attributes: { 'class': 'match' }, children: ['pr']  },
-                                { attributes: { 'class': 'after' }, children: ['otected'] }
+                                { attributes: { 'class': 'before' }, textContent: '' },
+                                { attributes: { 'class': 'match' }, textContent: 'pr' },
+                                { attributes: { 'class': 'after' }, textContent: 'otected' }
                             ]
                         }
                     ]
