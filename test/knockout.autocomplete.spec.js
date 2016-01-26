@@ -79,4 +79,68 @@ describe('knockout.autocomplete', function () {
             });
         });
     });
+
+    describe('blurring autocomplete element', function () {
+        beforeEach(function () {
+            $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, minLength: 0 }" value="">');
+            viewModel = {
+                data: ko.observable(keywords)
+            };
+            ko.applyBindings(viewModel, $testElement[0]);
+        });
+
+        describe('floating menu closed', function () {
+            beforeEach(function () {
+                $testElement.focus();
+            });
+
+            afterEach(function () {
+                keyUp($testElement);
+            });
+
+            it('should blur correctly on esc close', function () {
+                keyDown($testElement, { which: 27 }); // 27 = escape key
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+
+            it('should blur correctly when mouse is away from element and floating menu', function () {
+                $('#mocha').trigger('mouseenter');
+                $testElement.blur();
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+        });
+
+        describe('floating menu open', function () {
+            beforeEach(function () {
+                $testElement.val('pr').trigger('change');
+                keyUp($testElement);
+            });
+
+            afterEach(function () {
+                keyUp($testElement);
+            });
+
+            it('should blur correctly on esc close', function () {
+                keyDown($testElement, { which: 27 }); // 27 = escape key
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+
+            it('should blur correctly when mouse is away from element and floating menu', function () {
+                $('#mocha').trigger('mouseenter');
+                $testElement.blur();
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+
+            it('should not blur when mouse is over floating menu', function () {
+                $('.floating-menu').trigger('mouseenter');
+                $testElement.blur();
+
+                expect(document.activeElement, 'to equal', $testElement[0]);
+            });
+        });
+    });
 });

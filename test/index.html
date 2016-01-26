@@ -2,17 +2,23 @@
   <head>
     <title>Mocha</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../lib/knockout.autocomplete.css" />
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
     <style>
-     .floating-menu {
-         visibility: hidden;
-     }
+        .autocomplete, .floating-menu {
+            width: 180px;
+        }
+
+        .floating-menu {
+            max-height: 200px;
+            overflow-y: auto;
+        }
     </style>
   </head>
   <body>
     <div id="mocha"></div>
 
-    <div style="display: none" id="test"></div>
+    <div style="position: absolute; top: 0; left: -9999px;" id="test"></div>
 
     <!-- Test elements -->
 
