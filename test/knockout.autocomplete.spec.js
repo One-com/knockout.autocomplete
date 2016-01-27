@@ -79,4 +79,115 @@ describe('knockout.autocomplete', function () {
             });
         });
     });
+
+    describe('blurring autocomplete element', function () {
+        beforeEach(function () {
+            $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, minLength: 0 }" value="">');
+            viewModel = {
+                data: ko.observable(keywords)
+            };
+            ko.applyBindings(viewModel, $testElement[0]);
+        });
+
+        describe('floating menu closed', function () {
+            beforeEach(function () {
+                $testElement.focus();
+            });
+
+            afterEach(function () {
+                keyUp($testElement);
+            });
+
+            it('should blur correctly on esc close', function () {
+                keyDown($testElement, { which: 27 }); // 27 = escape key
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+
+            it('should blur correctly when mouse is away from element and floating menu', function () {
+                $('#mocha').trigger('mouseenter');
+                $testElement.blur();
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+        });
+
+        describe('floating menu open', function () {
+            beforeEach(function () {
+                $testElement.val('pr').trigger('change');
+                keyUp($testElement);
+            });
+
+            afterEach(function () {
+                keyUp($testElement);
+            });
+
+            it('should blur correctly on esc close', function () {
+                keyDown($testElement, { which: 27 }); // 27 = escape key
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+
+            it('should blur correctly when mouse is away from element and floating menu', function () {
+                $('#mocha').trigger('mouseenter');
+                $testElement.blur();
+
+                expect(document.activeElement, 'not to equal', $testElement[0]);
+            });
+
+            it('should not blur when mouse is over floating menu', function () {
+                $('.floating-menu').trigger('mouseenter');
+                $testElement.blur();
+
+                expect(document.activeElement, 'to equal', $testElement[0]);
+            });
+        });
+    });
+
+    describe('tracking when the mouse is over the floating menu', function () {
+        beforeEach(function () {
+            $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, minLength: 0 }" value="">');
+            viewModel = {
+                data: ko.observable(keywords)
+            };
+            ko.applyBindings(viewModel, $testElement[0]);
+        });
+
+        describe('attaching enter/leave event to the dropdown', function () {
+            describe('when changing the query phase', function () {
+                var beforeOverEvents;
+                var beforeOutEvents;
+                beforeEach(function () {
+                    var menuEvents = $._data( $('.floating-menu')[0], 'events');
+                    beforeOverEvents = menuEvents.mouseover && menuEvents.mouseover.length || 0;
+                    beforeOutEvents = menuEvents.mouseout && menuEvents.mouseout.length || 0;
+
+                    $testElement.val('fi').trigger('change');
+                    keyUp($testElement);
+
+                    $testElement.val('fin').trigger('change');
+                    keyUp($testElement);
+
+                    $testElement.val('fina').trigger('change');
+                    keyUp($testElement);
+
+                    $testElement.val('final').trigger('change');
+                    keyUp($testElement);
+                });
+
+                it('should only have add one enter event', function () {
+                    var menuEvents = $._data( $('.floating-menu')[0], 'events');
+
+                    expect(menuEvents.mouseover.length - beforeOverEvents, 'to equal', 1);
+                });
+
+                it('should only have add one leave event', function () {
+                    var menuEvents = $._data( $('.floating-menu')[0], 'events');
+
+                    expect(menuEvents.mouseout.length - beforeOutEvents, 'to equal', 1);
+                });
+
+            });
+        });
+    });
 });
