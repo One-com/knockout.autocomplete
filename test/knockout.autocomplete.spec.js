@@ -19,6 +19,11 @@ var keywords = [
 describe('knockout.autocomplete', function () {
     var $testElement;
     var viewModel;
+
+    afterEach(function () {
+        clearTestElement();
+    });
+
     describe('simple completion', function () {
         beforeEach(function () {
             $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, maxItems: 6 }" value="">');
@@ -187,6 +192,42 @@ describe('knockout.autocomplete', function () {
                     expect(menuEvents.mouseout.length - beforeOutEvents, 'to equal', 1);
                 });
 
+            });
+        });
+    });
+
+    describe('Update position events', function () {
+        beforeEach(function () {
+            $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, minLength: 0 }" value="">');
+            viewModel = {
+                data: ko.observable(keywords)
+            };
+            ko.applyBindings(viewModel, $testElement[0]);
+        });
+
+        describe('added autocomplete element', function () {
+            it('should have scroll event on window', function () {
+                var events = $._data(window, 'events');
+                expect(events.scroll.length, 'to be', 1);
+            });
+            it('should have scroll event on dropdown container', function () {
+                var events = $._data(getMenu(), 'events');
+                expect(events.scroll.length, 'to be', 1);
+            });
+            it('should have resize event on window', function () {
+                var events = $._data(window, 'events');
+                expect(events.resize.length, 'to be', 1);
+            });
+
+            describe('after removing autocomplete element', function () {
+                beforeEach(function () {
+                    clearTestElement();
+                });
+
+                it('should not have events on window', function () {
+                    var events = $._data(window, 'events');
+                    expect(events, 'to be falsy');
+                });
             });
         });
     });
