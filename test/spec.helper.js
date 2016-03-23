@@ -1,6 +1,13 @@
 var expect = window.weknowhow.expect;
 expect.use(window.unexpected.dom);
 
+function clearTestElement() {
+    var $testElement = $('#test').find('*');
+    $testElement.each(function () {
+        ko.cleanNode(this);
+    });
+}
+
 function useTestElement(html) {
     var container = $('#test');
     container.empty();
