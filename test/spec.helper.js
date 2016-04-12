@@ -1,6 +1,16 @@
 var expect = window.weknowhow.expect;
 expect.use(window.unexpected.dom);
 
+var Key = {
+    escape: 27,
+    up: 38,
+    down: 40,
+    pageUp: 33,
+    pageDown: 34,
+    enter: 13,
+    tab: 9
+};
+
 function clearTestElement() {
     var $testElement = $('#test').find('*');
     $testElement.each(function () {
@@ -18,6 +28,27 @@ function useTestElement(html) {
 
 function getMenu() {
     return $('.floating-menu')[0];
+}
+
+function touchStart(element, options) {
+    var defaultOptions = { };
+    options = $.extend(defaultOptions, options);
+    var e = $.Event("touchstart", options);
+    element.trigger(e);
+}
+
+function touchEnd(element, options) {
+    var defaultOptions = { };
+    options = $.extend(defaultOptions, options);
+    var e = $.Event("touchend", options);
+    element.trigger(e);
+}
+
+function touchMove(element, options) {
+    var defaultOptions = { };
+    options = $.extend(defaultOptions, options);
+    var e = $.Event("touchmove", options);
+    element.trigger(e);
 }
 
 function click(element, options) {
