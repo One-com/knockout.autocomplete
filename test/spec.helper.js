@@ -42,6 +42,7 @@ function touchEnd(element, options) {
     options = $.extend(defaultOptions, options);
     var e = $.Event("touchend", options);
     element.trigger(e);
+    return e;
 }
 
 function touchMove(element, options) {

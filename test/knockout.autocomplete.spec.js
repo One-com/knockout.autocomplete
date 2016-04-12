@@ -267,6 +267,16 @@ describe('knockout.autocomplete', function () {
 
                 expect($testElement.val(), 'to be', 'ascending');
             });
+            it('should prevent default on selection', function () {
+                var itemToSelect = $('.floating-menu').find('li')[4];
+                var $itemToSelect = $(itemToSelect);
+
+                touchStart($itemToSelect);
+                touchMove($itemToSelect);
+                var e = touchEnd($itemToSelect);
+
+                expect(e.isDefaultPrevented(), 'to be true');
+            });
 
             it('should not select item when moving too much', function () {
                 var itemToSelect = $('.floating-menu').find('li')[4];
