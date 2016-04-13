@@ -45,5 +45,6 @@
 
 .time-dropdown {
     max-height: 200px;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }

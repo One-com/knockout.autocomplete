@@ -231,4 +231,77 @@ describe('knockout.autocomplete', function () {
             });
         });
     });
+
+    describe('Dropdown navigation events', function () {
+        beforeEach(function () {
+            $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, minLength: 0 }" value="">');
+            viewModel = {
+                data: ko.observable(keywords)
+            };
+            ko.applyBindings(viewModel, $testElement[0]);
+
+            keyDown($testElement, {
+                which: Key.down //Open dropdown
+            });
+
+            keyUp($testElement);
+        });
+
+        it('Check downdown is opened', function () {
+            expect(getMenu(), 'to satisfy', {
+                attributes: {
+                    style: { display: 'block' },
+                    'class': ['knockout-autocomplete', 'floating-menu']
+                }
+            })
+        });
+
+        describe('touch', function () {
+            it('should select item on tap', function () {
+                var itemToSelect = $('.floating-menu').find('li')[4];
+                var $itemToSelect = $(itemToSelect);
+
+                touchStart($itemToSelect);
+                touchMove($itemToSelect);
+                touchEnd($itemToSelect);
+
+                expect($testElement.val(), 'to be', 'ascending');
+            });
+            it('should prevent default on selection', function () {
+                var itemToSelect = $('.floating-menu').find('li')[4];
+                var $itemToSelect = $(itemToSelect);
+
+                touchStart($itemToSelect);
+                touchMove($itemToSelect);
+                var e = touchEnd($itemToSelect);
+
+                expect(e.isDefaultPrevented(), 'to be true');
+            });
+
+            it('should not select item when moving too much', function () {
+                var itemToSelect = $('.floating-menu').find('li')[4];
+                var $itemToSelect = $(itemToSelect);
+
+                touchStart($itemToSelect);
+
+                touchMove($itemToSelect);
+                touchMove($itemToSelect);
+
+                touchEnd($itemToSelect);
+
+                expect($testElement.val(), 'to be', '');
+            });
+        });
+
+        describe('mouse', function () {
+            it('should select item on click', function () {
+                var itemToSelect = $('.floating-menu').find('li')[4];
+                var $itemToSelect = $(itemToSelect);
+
+                click($itemToSelect);
+
+                expect($testElement.val(), 'to be', 'ascending');
+            });
+        });
+    });
 });
