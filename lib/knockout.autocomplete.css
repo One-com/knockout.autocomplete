@@ -13,6 +13,10 @@
     box-shadow:         1px 1px 4px rgba(50, 50, 50, 0.75);
 }
 
+.knockout-autocomplete.after-menu {
+    position: absolute;
+}
+
 .knockout-autocomplete.menu li {
     cursor: pointer;
     list-style: none;
