@@ -81,8 +81,8 @@ function (completionItem) {
 
 #### after (default false)
 
-Append the autocomplete elemente after the target element (input). In this way, 
-the autocomplete can be positioned absolute but within a container sourounding 
+Appends the autocomplete element, after the target element (input). In this way, 
+the autocomplete can be positioned absolute, but within a container surrounding 
 both input and autocomplete. See the example on how to use it.
 
 ### Examples
