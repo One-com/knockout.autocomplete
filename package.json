@@ -5,6 +5,9 @@
   "scripts": {
     "test": "node_modules/.bin/mocha-phantomjs test/index.html"
   },
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "mocha": "2.3.2",
     "mocha-phantomjs": "3.6.0",
