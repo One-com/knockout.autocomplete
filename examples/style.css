@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 200px;
+}
+
 .completion {
     border: thin solid #aaa;
     display: inline-block;
@@ -47,4 +51,30 @@
     max-height: 200px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+}
+
+.after-container {
+    position: relative;
+    width: 200px;
+}
+.after-container .after-menu {
+    border: 1px solid #82bed6;
+    margin: -1px 0 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    box-shadow: 0px 3px 3px -1px rgba(0,0,0,0.1);
+}
+.after-container .after-menu li {
+    background-color: #fff;
+    padding: 0.5em 0.8em;
+}
+.after-container input {
+    width: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+.after-container input:focus {
+    outline: none;
+    border: 1px solid #82bed6;
 }

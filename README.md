@@ -79,6 +79,12 @@ function (completionItem) {
 };
 ```
 
+#### after (default false)
+
+Appends the autocomplete element, after the target element (input). In this way, 
+the autocomplete can be positioned absolute, but within a container surrounding 
+both input and autocomplete. See the example on how to use it.
+
 ### Examples
 
 [Click here to see an example](https://cdn.rawgit.com/One-com/knockout.autocomplete/master/examples/index.html)

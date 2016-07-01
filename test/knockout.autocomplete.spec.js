@@ -304,4 +304,28 @@ describe('knockout.autocomplete', function () {
             });
         });
     });
+
+    describe('place after element', function () {
+        beforeEach(function () {
+            $testElement = useTestElement('<input data-bind="autocomplete: { data: keywords, minLength: 0, after: true }" value="">');
+            viewModel = {
+                data: ko.observable(keywords)
+            };
+            ko.applyBindings(viewModel, $testElement[0]);
+        });
+
+        describe('added autocomplete element', function () {
+            it('element should have class \'after-menu\'', function () {
+                expect($('.after-menu').length, 'to be greater than', 0);
+            });
+            it('element is placed after target element', function () {
+                var previousElement = $('.after-menu').prev();
+                expect(previousElement[0].tagName, 'to be', "INPUT");
+            });
+            it('should not listen for scroll and resize events on window', function () {
+                var events = $._data(window, 'events');
+                expect(events, 'to be', undefined);
+            });
+        });
+    });
 });
