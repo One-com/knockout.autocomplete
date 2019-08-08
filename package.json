@@ -3,15 +3,15 @@
   "version": "1.7.1",
   "author": "Sune Sloth Simonsen <sune@we-knowhow.dk>",
   "scripts": {
-    "test": "node_modules/.bin/mocha-phantomjs test/index.html"
+    "test": "node_modules/.bin/phantomjs ./node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/index.html spec '{\"useColors\":true}'"
   },
   "files": [
     "lib"
   ],
   "devDependencies": {
     "mocha": "2.3.2",
-    "mocha-phantomjs": "3.6.0",
-    "phantomjs": "1.9.7-15",
+    "mocha-phantomjs-core": "^1.1.0",
+    "phantomjs-prebuilt": "^2.1.16",
     "serve": "^1.4.0",
     "unexpected": "10.8.0",
     "unexpected-dom": "3.0.2"
