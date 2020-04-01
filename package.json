@@ -10,7 +10,7 @@
   ],
   "devDependencies": {
     "jquery": "1.11.0",
-    "knockout": "3.4.0",
+    "knockout": "3.5.1",
     "mocha": "2.3.2",
     "mocha-phantomjs-core": "^1.1.0",
     "phantomjs-prebuilt": "^2.1.16",
