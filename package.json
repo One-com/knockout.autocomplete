@@ -9,7 +9,7 @@
     "lib"
   ],
   "devDependencies": {
-    "jquery": "1.11.0",
+    "jquery": "3.5.0",
     "knockout": "3.4.0",
     "mocha": "2.3.2",
     "mocha-phantomjs-core": "^1.1.0",
